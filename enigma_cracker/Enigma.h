@@ -7,7 +7,7 @@
 
 // class for the Enigma machine
 class Enigma {
-private:
+public:
 	std::vector<int> rotorSettings;			// which 3 rotors to use
 	std::string plugSettings;				// plugboard configuration
 	std::string rotorPosition;				// current rotor position
