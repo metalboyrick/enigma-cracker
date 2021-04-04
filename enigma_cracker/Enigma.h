@@ -17,8 +17,6 @@ public:
 
 private:
 	// indexing functions
-	int charToIndex(char c);
-	char indexToChar(int index);
 	int getRotorIndex(int rotorSlot, int c);
 	
 	// rotor turning

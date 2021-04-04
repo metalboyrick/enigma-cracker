@@ -39,4 +39,13 @@ std::vector<std::vector<int>> getPermutation(std::vector<int> v, int r)
     return combinations;
 }
 
+// converts an UPPERCASE character to index 0-25
+int charToIndex(char c)
+{
+    return static_cast<int>(c) - 65;
+}
 
+char indexToChar(int index)
+{
+    return static_cast<char>(index + 65);
+}

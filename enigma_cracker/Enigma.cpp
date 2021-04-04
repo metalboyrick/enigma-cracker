@@ -32,16 +32,7 @@ char Enigma::emulatePress(char c)
 	return passAll(c);
 }
 
-// converts an UPPERCASE character to index 0-25
-int Enigma::charToIndex(char c)
-{
-	return static_cast<int>(c) - 65;
-}
 
-char Enigma::indexToChar(int index)
-{
-	return static_cast<char>(index + 65);
-}
 
 int Enigma::getRotorIndex(int rotorSlot,int c)
 {
