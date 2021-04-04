@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Enigma.h"
 #include "Constants.h"
+#include "Utility.h"
 #include <vector>
 #include <string>
 
@@ -14,6 +15,7 @@ int main()
     for(int i = 0; i < ptext.length(); i++)
          std::cout << enigma.emulatePress(ptext[i]);
     std::cout << std::endl;
+
     return 0;
 }
 
