@@ -1,12 +1,9 @@
 ﻿// main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
 #include "Enigma.h"
 #include "Constants.h"
 #include "Utility.h"
-#include <vector>
-#include <string>
 
 int main()
 {
