@@ -55,6 +55,14 @@ void Enigma::turnRotor()
 	if (cpos == ROTOR_NOTCHES[rotorSettings[CENTER] -1 ]) {
 		if (lpos >= 'Z') lpos = 'A';
 		else lpos += 1;
+
+		if (cpos >= 'Z') cpos = 'A';
+		else cpos += 1;
+
+		if (rpos >= 'Z') rpos = 'A';
+		else rpos += 1;
+
+		goto end;
 	};
 
 	// turn the center rotor
@@ -62,15 +70,20 @@ void Enigma::turnRotor()
 		if (cpos >= 'Z') cpos = 'A';
 		else cpos += 1;
 	};
-	
-	// turn the right rotor
+
+
 	if (rpos >= 'Z') rpos = 'A';
 	else rpos += 1;
 
+	
+	// turn the right rotor
+	
+
 	// convert the results back into letters;
-	rotorPosition[RIGHT] = rpos;
-	rotorPosition[LEFT] = lpos;
-	rotorPosition[CENTER] = cpos;
+	end:
+		rotorPosition[RIGHT] = rpos;
+		rotorPosition[LEFT] = lpos;
+		rotorPosition[CENTER] = cpos;
 
 	/*std::cout << rotorPosition[LEFT] << rotorPosition[CENTER] << rotorPosition[RIGHT] << std::endl;*/
 
