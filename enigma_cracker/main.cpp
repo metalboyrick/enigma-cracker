@@ -16,12 +16,13 @@ int main()
 
     // making the loops
     std::vector<std::vector<LoopEdge>> loops;
-    std::vector<LoopEdge> loop1 = { LoopEdge{'G', 'M', 16}, 
-                                    LoopEdge{'M', 'O', 3},
+    std::vector<LoopEdge> loop1 = { LoopEdge{'G', 'A', 16}, 
+                                    LoopEdge{'A', 'O', 3},
                                     LoopEdge{'O', 'G', 24} };
-    std::vector<LoopEdge> loop2 = { LoopEdge{'M', 'N', 23},
-                                    LoopEdge{'N', 'R', 15},
-                                    LoopEdge{'R', 'M', 21} };
+    std::vector<LoopEdge> loop2 = { LoopEdge{'E', 'V', 4},
+                                    LoopEdge{'V', 'R', 12},
+                                    LoopEdge{'R', 'J', 21},
+                                    LoopEdge{'J', 'E', 19} };
     loops.push_back(loop1);
     loops.push_back(loop2);
     
