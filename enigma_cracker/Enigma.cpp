@@ -18,6 +18,13 @@ enum RotorPosition {
 		plugSettings: an array of characters, representing mappins for the plugboard
 		rotorPosition: 3 chars, representing the position of the rotors
 */
+Enigma::Enigma()
+{
+	this->rotorSettings = DEF_ROTOR_SETTINGS;
+	this->plugSettings = DEF_PLUG_SETTINGS;
+	this->rotorPosition = DEF_ROTOR_POSITION;
+}
+
 Enigma::Enigma(const std::vector<int>& rotorSettings, const std::string& plugSettings, const std::string& rotorPosition)
 {
 	// initialise all the values

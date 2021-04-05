@@ -20,7 +20,7 @@ private:
 
 public:
 	Bombe(std::vector<std::vector<LoopEdge>> loops);
-	
+	void crack();
 };
 
 #endif
