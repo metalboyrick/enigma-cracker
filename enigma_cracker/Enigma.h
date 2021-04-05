@@ -12,6 +12,7 @@ public:
 	std::string plugSettings;				// plugboard configuration
 	std::string rotorPosition;				// current rotor position
 public:
+	Enigma();
 	Enigma(const std::vector<int>& rotorSettings, const std::string& plugSettings, const std::string& rotorPosition);
 	char emulatePress(char c);
 
