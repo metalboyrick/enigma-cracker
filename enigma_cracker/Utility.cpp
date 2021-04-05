@@ -49,3 +49,17 @@ char indexToChar(int index)
 {
     return static_cast<char>(index + 65);
 }
+
+std::string convertToPlugboard(std::unordered_map<char, char> plugboardMap)
+{
+    std::string resString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for (auto& mapping : plugboardMap) {
+        if (mapping.second != mapping.first) {
+            resString[charToIndex(mapping.first)] = mapping.second;
+            resString[charToIndex(mapping.second)] = mapping.first;
+        }
+    }
+
+    return std::string();
+}
