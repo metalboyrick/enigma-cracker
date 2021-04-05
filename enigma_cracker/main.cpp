@@ -8,11 +8,11 @@
 
 int main()
 {
-    Enigma enigma({4, 2, 1}, DEF_PLUG_SETTINGS, "EEV");
+    /*Enigma enigma({4, 2, 1}, DEF_PLUG_SETTINGS, "EEV");
     std::string ptext = "ILOVESOFTWAREENGINEERING";
     for(int i = 0; i < ptext.length(); i++)
          std::cout << enigma.emulatePress(ptext[i]);
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     // making the loops
     std::vector<std::vector<LoopEdge>> loops;
@@ -39,37 +39,37 @@ int main()
                                     LoopEdge{'O', 'I', 22},
                                     LoopEdge{'I', 'X', 17} };*/
 
-    //std::vector<LoopEdge> loop1 = {
-    //                                LoopEdge{'M','N',23},
-    //                                LoopEdge{'N','R',15},
-    //                                LoopEdge{'R','M',21}
-    //};
-    //std::vector<LoopEdge> loop2 = {
-    //                                LoopEdge{'M','G',16},
-    //                                LoopEdge{'G','O',24},
-    //                                LoopEdge{'O','M',3}
-    //};
-    //std::vector<LoopEdge> loop3 = {
-    //                                LoopEdge{'O','J',7},
-    //                                LoopEdge{'J','E',19},
-    //                                LoopEdge{'E','I',13},
-    //                                LoopEdge{'I','O',22}
-    //};
-    //std::vector<LoopEdge> loop4 = {
-    //                                LoopEdge{'E','I',13},
-    //                                LoopEdge{'I','X',17},
-    //                                LoopEdge{'X','L',2},
-    //                                LoopEdge{'L','E',14}
-    //};
+    std::vector<LoopEdge> loop1 = {
+                                    LoopEdge{'M','N',23},
+                                    LoopEdge{'N','R',15},
+                                    LoopEdge{'R','M',21}
+    };
+    std::vector<LoopEdge> loop2 = {
+                                    LoopEdge{'M','G',16},
+                                    LoopEdge{'G','O',24},
+                                    LoopEdge{'O','M',3}
+    };
+    std::vector<LoopEdge> loop3 = {
+                                    LoopEdge{'O','J',7},
+                                    LoopEdge{'J','E',19},
+                                    LoopEdge{'E','I',13},
+                                    LoopEdge{'I','O',22}
+    };
+    std::vector<LoopEdge> loop4 = {
+                                    LoopEdge{'E','I',13},
+                                    LoopEdge{'I','X',17},
+                                    LoopEdge{'X','L',2},
+                                    LoopEdge{'L','E',14}
+    };
 
-    //loops.push_back(loop1);
-    //loops.push_back(loop2);
-    //loops.push_back(loop3);
-    //loops.push_back(loop4);
-    ////loops.push_back(loop5);
-    //
-    //Bombe bombe(loops);
-    //bombe.crack();
+    loops.push_back(loop1);
+    loops.push_back(loop2);
+    loops.push_back(loop3);
+    loops.push_back(loop4);
+    //loops.push_back(loop5);
+    
+    Bombe bombe(loops);
+    bombe.crack();
 
     return 0;
 }
