@@ -4,14 +4,29 @@
 #include "Enigma.h"
 #include "Constants.h"
 #include "Utility.h"
+#include "Bombe.h"
 
 int main()
 {
-    Enigma enigma({4, 3, 1}, "MBCQERGHIJKLANOPDFSTUVWXYZ", "EDI");
+    /*Enigma enigma({4, 3, 1}, DEF_PLUG_SETTINGS, "EDI");
     std::string ptext = "ILOVESOFTWAREENGINEERING";
     for(int i = 0; i < ptext.length(); i++)
          std::cout << enigma.emulatePress(ptext[i]);
-    std::cout << std::endl;
+    std::cout << std::endl;*/
+
+    // making the loops
+    std::vector<std::vector<LoopEdge>> loops;
+    std::vector<LoopEdge> loop1 = { LoopEdge{'G', 'M', 16}, 
+                                    LoopEdge{'M', 'O', 3},
+                                    LoopEdge{'O', 'G', 24} };
+    std::vector<LoopEdge> loop2 = { LoopEdge{'M', 'N', 23},
+                                    LoopEdge{'N', 'R', 15},
+                                    LoopEdge{'R', 'M', 21} };
+    loops.push_back(loop1);
+    loops.push_back(loop2);
+    
+    Bombe bombe(loops);
+    bombe.crack();
 
     return 0;
 }

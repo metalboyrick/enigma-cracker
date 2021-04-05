@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bombe.cpp" />
     <ClCompile Include="Constants.cpp" />
     <ClCompile Include="Enigma.cpp" />
     <ClCompile Include="main.cpp" />

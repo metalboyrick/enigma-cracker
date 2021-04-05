@@ -4,40 +4,92 @@
 
 Bombe::Bombe(std::vector<std::vector<LoopEdge>> loops)
 {
-	loops = loops;
+	this->loops = loops;
 }
 
 void Bombe::crack()
 {
-	std::vector<std::vector<int>> rotorCombinations = getPermutation({1,2,3,4,5}, 3);
+
+	// TRIAL CODE
+	std::string initRotorPosition = "EDI";
 	
-	// iterate through the rotor combinations
-	for (auto& rotorSetting : rotorCombinations) {
+	std::vector<int> rotorSetting = {4, 3, 1};
 
-		enigma.rotorSettings = rotorSetting;
+	enigma.rotorPosition = initRotorPosition;
+	enigma.rotorSettings = rotorSetting;
 
-		// iterate through he rotor init positions
-		for (int leftRotorPos = 0; leftRotorPos < 26; leftRotorPos++) {
-			for (int centerRotorPos = 0; centerRotorPos < 26; centerRotorPos++) {
-				for (int rightRotorPos = 0; rightRotorPos < 26; rightRotorPos++) {
-
-					std::string initRotorPosition({ indexToChar(leftRotorPos),
-													indexToChar(centerRotorPos),
-													indexToChar(rightRotorPos),
-													'\0' });
-
-					enigma.rotorPosition = initRotorPosition;
+	for (auto& loop : loops) {
 
 
-					// iterate through all loops
-					for (auto& loop : loops) {
+		bool isBreak = false;
 
-						// TODO
-						continue;
-					}
-				}
+		// iterate through all edges in loop
+		for (auto& edge : loop) {
+
+			enigma.rotorPosition = initRotorPosition;
+
+			char resChar = edge.first;
+			// try to do without considering the plugboards first
+			// type the same character so to check the target index character
+			for (int pressCount = 0; pressCount < edge.index; pressCount++) {
+				resChar = enigma.emulatePress(edge.first);
+			}
+
+			// ending char incorrect
+			if (resChar != edge.second) {
+				isBreak = true;
+				break;
 			}
 		}
+		if (isBreak) {
+			std::cout << "Incorrect rotor wheels!" << std::endl;
+			return;
+		}
 	}
+
+	std::cout << "Correct rotor wheels!" << std::endl;
+	return;
+
+
+	// TRIAL CODE ENDS HERE
+
+	//std::vector<std::vector<int>> rotorCombinations = getPermutation({1,2,3,4,5}, 3);
+	//
+	//// iterate through the rotor combinations
+	//for (auto& rotorSetting : rotorCombinations) {
+
+	//	enigma.rotorSettings = rotorSetting;
+
+	//	// iterate through he rotor init positions
+	//	for (int leftRotorPos = 0; leftRotorPos < 26; leftRotorPos++) {
+	//		for (int centerRotorPos = 0; centerRotorPos < 26; centerRotorPos++) {
+	//			for (int rightRotorPos = 0; rightRotorPos < 26; rightRotorPos++) {
+
+	//				std::string initRotorPosition({ indexToChar(leftRotorPos),
+	//												indexToChar(centerRotorPos),
+	//												indexToChar(rightRotorPos),
+	//												'\0' });
+
+	//				enigma.rotorPosition = initRotorPosition;
+
+	//				// iterate through all loops
+	//				for (auto& loop : loops)
+	//					
+	//					// iterate through all edges in loop
+	//					for (auto& edge : loop) {
+	//						
+	//						// try to do without considering the plugboards first
+	//						// type the same character so to check the target index character
+	//						for (int pressCount; pressCount < edge.index; pressCount++) {
+	//							
+	//						}
+	//					}
+	//					// TODO
+	//					continue;
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 
 }
