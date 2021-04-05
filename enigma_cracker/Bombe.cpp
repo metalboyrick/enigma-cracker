@@ -20,7 +20,8 @@ void Bombe::crack()
 
 	for (auto& loop : loops) {
 
-
+		char resChar = '0';
+		char finalChar = loop[loop.size() - 1].second;
 		bool isBreak = false;
 
 		// iterate through all edges in loop
@@ -28,20 +29,15 @@ void Bombe::crack()
 
 			enigma.rotorPosition = initRotorPosition;
 
-			char resChar = edge.first;
+			resChar = edge.first;
 			// try to do without considering the plugboards first
 			// type the same character so to check the target index character
 			for (int pressCount = 0; pressCount < edge.index; pressCount++) {
 				resChar = enigma.emulatePress(edge.first);
 			}
-
-			// ending char incorrect
-			if (resChar != edge.second) {
-				isBreak = true;
-				break;
-			}
 		}
-		if (isBreak) {
+
+		if (resChar != finalChar) {
 			std::cout << "Incorrect rotor wheels!" << std::endl;
 			return;
 		}
